@@ -7,30 +7,42 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<button class="open">open modal</button>
-		<custom-modal message="Are you sure you want to continue?"></custom-modal>
-		<p class="output"></p>
+		<button class="open-1">open first modal</button>
+		<custom-modal class="modal-1" message="This is the first modal, are you sure you want to continue?"></custom-modal>
+		<p class="output-1"></p>
+
+		<button class="open-2">open second modal</button>
+		<custom-modal class="modal-2" message="This is the second modal, are you sure you want to continue?"></custom-modal>
+		<p class="output-2"></p>
 
 		<!-- Scripts -->
 
 		<script src="./modal.js"></script>
 		<script>
-			let modal = document.querySelector('custom-modal');
-			let open = document.querySelector('.open');
+			setupModal('1');
+			setupModal('2');
 
-			// Listen for inner modal button events
-			modal.addEventListener('confirm', () => {
-				document.querySelector('.output').textContent = 'Yes button was pressed';
-			});
+			function setupModal(id) {
+				let modal = document.querySelector(`.modal-${id}`);
+				let open = document.querySelector(`.open-${id}`);
+				let output = document.querySelector(`.output-${id}`);
 
-			modal.addEventListener('cancel', () => {
-				document.querySelector('.output').textContent = 'Cancel button was pressed';
-			});
+				if (modal && open && output) {
+					// Listen for inner modal button events
+					modal.addEventListener('confirm', () => {
+						output.textContent = 'Yes button was pressed';
+					});
 
-			// Set modal as visible on button click
-			open.addEventListener('click', function () {
-				modal.setAttribute('visible', true);
-			});
+					modal.addEventListener('cancel', () => {
+						output.textContent = 'Cancel button was pressed';
+					});
+
+					// Set modal as visible on button click
+					open.addEventListener('click', function () {
+						modal.setAttribute('visible', true);
+					});
+				}
+			}
 		</script>
 	</body>
 </html>
