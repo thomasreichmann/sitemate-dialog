@@ -2,13 +2,47 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 <style>
+dialog {}
+
+::backdrop,
+dialog + .backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+dialog {
+  border: none;
+  border-radius: 10px;
+}
+
+.content {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content button {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	transition: all 0.4s ease 0s;
+}
+
+.content button:hover {
+	background: #434343;
+	transition: all 0.4s ease 0s;
+}
 </style>
 <dialog>
-  <h1 class="message"></h1>
-  <menu>
-    <button class="confirm">Yes</button>
-    <button class="cancel">Cancel</button>
-  </menu>
+  <div class="content">
+    <h1 class="message"></h1>
+    <menu>
+      <button class="confirm">Yes</button>
+      <button class="cancel">Cancel</button>
+    </menu>
+  </div>
 </dialog>`;
 
 class Modal extends HTMLElement {

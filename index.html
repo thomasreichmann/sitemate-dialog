@@ -5,10 +5,19 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+		</style>
 	</head>
 	<body>
 		<button class="open-1">open first modal</button>
-		<custom-modal class="modal-1" message="This is the first modal, are you sure you want to continue?"></custom-modal>
+		<custom-modal
+			visible
+			class="modal-1"
+			message="This is the first modal, are you sure you want to continue?"
+		></custom-modal>
 		<p class="output-1"></p>
 
 		<button class="open-2">open second modal</button>
