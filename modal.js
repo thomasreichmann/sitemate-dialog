@@ -4,9 +4,10 @@ template.innerHTML = `
 <style>
 </style>
 <dialog>
+  <h1 class="message"></h1>
   <menu>
+    <button class="confirm">Yes</button>
     <button class="cancel">Cancel</button>
-    <button class="confirm" value="default">Confirm</button>
   </menu>
 </dialog>`;
 
@@ -43,12 +44,12 @@ class Modal extends HTMLElement {
 	}
 
 	static get observedAttributes() {
-		return ['visible', 'title'];
+		return ['visible', 'message'];
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {
-		if (name === 'title' && this.shadowRoot) {
-			this.shadowRoot.querySelector('.title').textContent = newValue;
+		if (name === 'message' && this.shadowRoot) {
+			this.shadowRoot.querySelector('.message').textContent = newValue;
 		}
 		if (name === 'visible' && this.shadowRoot) {
 			if (newValue === null) {
