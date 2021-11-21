@@ -32,10 +32,12 @@ class Modal extends HTMLElement {
 	attachEventHandlers() {
 		const cancelButton = this.shadowRoot.querySelector('.cancel');
 		cancelButton.addEventListener('click', e => {
+			this.dispatchEvent(new CustomEvent('cancel'));
 			this.removeAttribute('visible');
 		});
 		const confirmbutton = this.shadowRoot.querySelector('.confirm');
 		confirmbutton.addEventListener('click', e => {
+			this.dispatchEvent(new CustomEvent('confirm'));
 			this.removeAttribute('visible');
 		});
 	}

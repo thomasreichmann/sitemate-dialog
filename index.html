@@ -17,9 +17,13 @@
 			let modal = document.querySelector('custom-modal');
 			let open = document.querySelector('.open');
 
-			// Listen for confirm button event
+			// Listen for inner modal button events
 			modal.addEventListener('confirm', () => {
 				console.log('confirm');
+			});
+
+			modal.addEventListener('cancel', () => {
+				console.log('cancel');
 			});
 
 			// Set modal as visible on button click
