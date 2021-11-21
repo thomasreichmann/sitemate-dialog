@@ -9,6 +9,7 @@
 	<body>
 		<button class="open">open modal</button>
 		<custom-modal message="Are you sure you want to continue?"></custom-modal>
+		<p class="output"></p>
 
 		<!-- Scripts -->
 
@@ -19,11 +20,11 @@
 
 			// Listen for inner modal button events
 			modal.addEventListener('confirm', () => {
-				console.log('confirm');
+				document.querySelector('.output').textContent = 'Yes button was pressed';
 			});
 
 			modal.addEventListener('cancel', () => {
-				console.log('cancel');
+				document.querySelector('.output').textContent = 'Cancel button was pressed';
 			});
 
 			// Set modal as visible on button click
