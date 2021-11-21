@@ -13,5 +13,19 @@
 		<!-- Scripts -->
 
 		<script src="./modal.js"></script>
+		<script>
+			let modal = document.querySelector('custom-modal');
+			let open = document.querySelector('.open');
+
+			// Listen for confirm button event
+			modal.addEventListener('confirm', () => {
+				console.log('confirm');
+			});
+
+			// Set modal as visible on button click
+			open.addEventListener('click', function () {
+				modal.setAttribute('visible', true);
+			});
+		</script>
 	</body>
 </html>
